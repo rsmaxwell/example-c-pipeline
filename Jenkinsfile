@@ -23,12 +23,15 @@ pipeline {
           command:
           - cat
           tty: true
+<<<<<<< HEAD
 
         - env:
           resources:
             requests:
               memory: "1Gi"
               cpu: "100m"
+=======
+>>>>>>> d308786 (standardise indenation to 2 spaces)
       '''
     }
   }
