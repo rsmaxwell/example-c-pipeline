@@ -24,11 +24,11 @@ pipeline {
                     - cat
                     tty: true
 
-                -   resources:
-                      limits: {}
-                      requests:
-                        memory: "1Gi"
-                        cpu: "100m"
+                - env:
+                    resources:
+                        requests:
+                            memory: "1Gi"
+                            cpu: "100m"
             '''
         }
     }
