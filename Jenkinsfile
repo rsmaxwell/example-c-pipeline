@@ -11,16 +11,24 @@ pipeline {
                     command:
                     - cat
                     tty: true
+
                 -   name: maven
                     image: maven:alpine
                     command:
                     - cat
                     tty: true
+
                 -   name: c
                     image: gcc:latest
                     command:
                     - cat
                     tty: true
+
+                -   resources:
+                      limits: {}
+                      requests:
+                        memory: "1Gi"
+                        cpu: "100m"
             '''
         }
     }
