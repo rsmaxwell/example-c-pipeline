@@ -6,17 +6,17 @@ pipeline {
             kind: Pod
             spec:
                 containers:
-                -    name: ubuntu
+                -   name: ubuntu
                     image: ubuntu:20.04
                     command:
                     - cat
                     tty: true
-                -    name: maven
+                -   name: maven
                     image: maven:alpine
                     command:
                     - cat
                     tty: true
-                -    name: c
+                -   name: c
                     image: gcc:latest
                     command:
                     - cat
