@@ -37,6 +37,8 @@ pipeline {
                         userRemoteConfigs: [[url: 'https://github.com/rsmaxwell/example-c']]
                     ])
                 }
+                sh('pwd')
+                sh('ls -al')
                 sh('./prepare.sh')
             }
         }
