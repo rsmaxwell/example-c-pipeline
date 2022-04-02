@@ -30,15 +30,18 @@ pipeline {
             steps {
                 container('ubuntu') {
                     echo 'preparing the application'
-                    checkout([
-                        $class: 'GitSCM', 
-                        branches: [[name: '*/main']], 
-                        extensions: [], 
-                        userRemoteConfigs: [[url: 'https://github.com/rsmaxwell/example-c']]
-                    ])
+                    dir('src') {
+                        checkout([
+                            $class: 'GitSCM', 
+                            branches: [[name: '*/main']], 
+                            extensions: [], 
+                            userRemoteConfigs: [[url: 'https://github.com/rsmaxwell/example-c']]
+                        ])
+                    }
                 }
                 sh('pwd')
                 sh('ls -al')
+                sh('ls -al src')
                 sh('./prepare.sh')
             }
         }
