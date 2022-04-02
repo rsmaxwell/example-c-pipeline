@@ -1,5 +1,6 @@
 pipeline {
 <<<<<<< HEAD
+<<<<<<< HEAD
   agent {
     kubernetes {
       yaml '''
@@ -51,6 +52,8 @@ pipeline {
             ])
           }
 =======
+=======
+>>>>>>> ee452fb (fix syntax)
     agent {
         kubernetes {
             yaml '''
@@ -74,7 +77,10 @@ pipeline {
                     - cat
                     tty: true
             '''
+<<<<<<< HEAD
 >>>>>>> a552f44 (fix syntax)
+=======
+>>>>>>> ee452fb (fix syntax)
         }
     }
     stages {
