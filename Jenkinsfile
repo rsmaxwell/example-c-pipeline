@@ -4,15 +4,6 @@ pipeline {
       yaml '''
       apiVersion: "v1"
       kind: "Pod"
-      metadata:
-        annotations:
-          buildUrl: "http://tintin:8080/job/example-c-pipeline/job/main/13/"
-          runUrl: "job/example-c-pipeline/job/main/13/"
-        labels:
-          jenkins: "slave"
-          jenkins/label-digest: "48a2ae816290614619175dc7517284d3d3fd1897"
-          jenkins/label: "example-c-pipeline_main_13-5qsdm"
-        name: "example-c-pipeline-main-13-5qsdm-2n7dh-f735m"
       spec:
         containers:
         - command:
@@ -43,24 +34,9 @@ pipeline {
             name: "workspace-volume"
             readOnly: false
         - env:
-          - name: "JENKINS_SECRET"
-            value: "********"
-          - name: "JENKINS_AGENT_NAME"
-            value: "example-c-pipeline-main-13-5qsdm-2n7dh-f735m"
-          - name: "JENKINS_WEB_SOCKET"
-            value: "true"
-          - name: "JENKINS_NAME"
-            value: "example-c-pipeline-main-13-5qsdm-2n7dh-f735m"
-          - name: "JENKINS_AGENT_WORKDIR"
-            value: "/home/jenkins/agent"
-          - name: "JENKINS_URL"
-            value: "http://tintin:8080/"
-          image: "jenkins/inbound-agent:4.11-1-jdk11"
-          name: "jnlp"
           resources:
-            limits: {}
             requests:
-              memory: "256Mi"
+              memory: "2Gi"
               cpu: "100m"
           volumeMounts:
           - mountPath: "/home/jenkins/agent"
