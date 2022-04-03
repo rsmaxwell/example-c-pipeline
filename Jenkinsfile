@@ -72,7 +72,7 @@ pipeline {
       steps {
         container('maven') {
           echo 'deploying the application'
-          sh('('./project/scripts/deploy.sh')
+          sh('./project/scripts/deploy.sh')
         }
       }
     }
