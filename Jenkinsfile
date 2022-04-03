@@ -21,11 +21,10 @@ pipeline {
                     command:
                     - cat
                     tty: true
-                env:
-                    resources:
-                        requests:
-                            memory: "2Gi"
-                            cpu: "100m"
+                resources:
+                    requests:
+                        memory: "2Gi"
+                        cpu: "100m"
             '''
         }
     }
