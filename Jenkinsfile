@@ -39,7 +39,7 @@ pipeline {
       steps {
         container('ubuntu') {
           echo 'preparing the application'
-          dir('src') {
+          dir('project') {
             checkout([
               $class: 'GitSCM', 
               branches: [[name: '*/main']], 
@@ -50,8 +50,8 @@ pipeline {
         }
         sh('pwd')
         sh('ls -al')
-        sh('ls -al src')
-        sh('./prepare.sh')
+        sh('ls -al project')
+        sh('('./project/scripts/prepare.sh')
       }
     }
 
@@ -59,7 +59,7 @@ pipeline {
       steps {
         container('c') {
           echo 'building the application'
-          sh('./build.sh')
+          sh('./project/scripts/build.sh')
         }
       }
     }
@@ -68,7 +68,7 @@ pipeline {
       steps {
         container('ubuntu') {
           echo 'testing the application'
-          sh("./test.sh")
+          sh("('./project/scripts/test.sh")
         }
       }
     }
@@ -77,7 +77,7 @@ pipeline {
       steps {
         container('maven') {
           echo 'deploying the application'
-          sh('./deploy.sh')
+          sh('('./project/scripts/deploy.sh')
         }
       }
     }
