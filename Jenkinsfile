@@ -46,7 +46,7 @@ pipeline {
         sh('pwd')
         sh('ls -al')
         sh('ls -al project')
-        sh('('./project/scripts/prepare.sh')
+        sh('./project/scripts/prepare.sh')
       }
     }
 
