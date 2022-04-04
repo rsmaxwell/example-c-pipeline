@@ -63,7 +63,7 @@ pipeline {
       steps {
         container('ubuntu') {
           echo 'testing the application'
-          sh("('./project/scripts/test.sh")
+          sh('./project/scripts/test.sh')
         }
       }
     }
