@@ -68,6 +68,15 @@ pipeline {
       }
     }
 
+    stage('package') {
+      steps {
+        container('ubuntu') {
+          echo 'packaging the application'
+          sh('./project/scripts/package.sh')
+        }
+      }
+    }
+
     stage('deploy') {
       steps {
         container('maven') {
