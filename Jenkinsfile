@@ -6,18 +6,18 @@ pipeline {
       kind: Pod
       spec:
         containers:
-        - name: ubuntu
-          image: ubuntu:20.04
-          command:
-          - cat
-          tty: true
-        - name: maven
-          image: maven:alpine
+        - name: tools
+          image: rsmaxwell/tools:latest
           command:
           - cat
           tty: true
         - name: c
           image: gcc:latest
+          command:
+          - cat
+          tty: true
+        - name: maven
+          image: maven:alpine
           command:
           - cat
           tty: true
@@ -32,7 +32,7 @@ pipeline {
 
     stage('prepare') {
       steps {
-        container('ubuntu') {
+        container('tools') {
           echo 'preparing the application'
           dir('project') {
             checkout([
@@ -61,7 +61,7 @@ pipeline {
 
     stage('test') {
       steps {
-        container('ubuntu') {
+        container('tools') {
           echo 'testing the application'
           sh('./project/scripts/test.sh')
         }
@@ -70,7 +70,7 @@ pipeline {
 
     stage('package') {
       steps {
-        container('ubuntu') {
+        container('tools') {
           echo 'packaging the application'
           sh('./project/scripts/package.sh')
         }
