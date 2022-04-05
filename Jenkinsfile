@@ -26,6 +26,7 @@ pipeline {
             memory: "2Gi"
             cpu: "100m"
       '''
+      workspaceVolume persistentVolumeClaimWorkspaceVolume(claimName: 'workspace', readOnly: false)
     }
   }
   stages {
