@@ -22,21 +22,20 @@ pipeline {
           - cat
           tty: true
           volumeMounts:
-          - name: maven-vol
-            mountPath: /root/.m2/repository
-          - name: maven-settings
-            mountPath: /root/.m2/settings.xml
+          - mountPath: /root/.m2/repository
+            name: maven-vol
+          - mountPath: /root/.m2/settings.xml
+            name: maven-settings
         resources:
           requests:
             memory: "1Gi"
             cpu: "100m"
         volumes:
         - name: maven-vol
-          persistentVolumeClaim:
           claimName: maven-pvc
         - name: maven-settings
           secret:
-          secretName: maven-settings
+            secretName: maven-settings
       '''
     }
   }
