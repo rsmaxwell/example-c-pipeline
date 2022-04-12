@@ -34,7 +34,7 @@ pipeline {
         - name: maven-vol
           persistentVolumeClaim:
           claimName: maven-pvc
-        - name maven-settings
+        - name: maven-settings
           secret:
             secretName: maven-settings
       '''
