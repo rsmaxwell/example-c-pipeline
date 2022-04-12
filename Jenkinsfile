@@ -91,6 +91,7 @@ pipeline {
           sh('pwd')
           sh('ls -al')
           sh('ls ~')
+          sh('ls /var/maven_home')
           sh('ls ~/.m2')
           sh('tree ~/.m2')
           sh('./project/scripts/deploy.sh')
