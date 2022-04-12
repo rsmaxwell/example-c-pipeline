@@ -24,6 +24,8 @@ pipeline {
           volumeMounts:
           - name: maven-vol
             mountPath: /root/.m2/repository
+          - name: maven-settings
+            mountPath: /root/.m2/settings.xml
         resources:
           requests:
             memory: "1Gi"
@@ -32,6 +34,9 @@ pipeline {
         - name: maven-vol
           persistentVolumeClaim:
           claimName: maven-pvc
+        - name: maven-settings
+          secret:
+          secretName: maven-settings
       '''
     }
   }
