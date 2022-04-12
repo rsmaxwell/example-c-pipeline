@@ -31,7 +31,7 @@ pipeline {
         volumes:
         - name: maven-vol
           persistentVolumeClaim:
-            claimName: maven-pvc
+          claimName: maven-pvc
       '''
     }
   }
