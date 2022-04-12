@@ -22,16 +22,16 @@ pipeline {
           - cat
           tty: true
           volumeMounts:
-            - mountPath: /var/maven_home
-              name: maven-vol
+          - mountPath: /var/maven_home
+            name: maven-vol
         resources:
           requests:
             memory: "1Gi"
             cpu: "100m"
-      volumes:
-      - name: maven-vol
-        persistentVolumeClaim:
-        claimName: maven-pvc
+        volumes:
+        - name: maven-vol
+          persistentVolumeClaim:
+          claimName: maven-pvc
       '''
     }
   }
