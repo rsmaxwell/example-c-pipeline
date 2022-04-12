@@ -90,9 +90,8 @@ pipeline {
           echo 'deploying the application'
           sh('pwd')
           sh('ls -al')
-          sh('ls ~')
-          sh('ls ~/.m2')
-          sh('tree ~/.m2')
+          sh('ls -al ~')
+          sh('ls -al ~/.m2')
           sh('./project/scripts/deploy.sh')
         }
       }
