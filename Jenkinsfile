@@ -21,12 +21,18 @@ pipeline {
           command:
           - cat
           tty: true
+          volumeMounts:
+            - mountPath: /var/maven_home
+              name: maven-vol
         resources:
           requests:
-            memory: "2Gi"
+            memory: "1Gi"
             cpu: "100m"
+      volumes:
+      - name: maven-vol
+        persistentVolumeClaim:
+        claimName: maven-pvc
       '''
-      workspaceVolume persistentVolumeClaimWorkspaceVolume(claimName: 'workspace', readOnly: false)
     }
   }
   stages {
