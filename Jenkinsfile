@@ -22,7 +22,7 @@ pipeline {
           - cat
           tty: true
           volumeMounts:
-          - mountPath: /var/maven_home
+          - mountPath: /root/.m2
             name: maven-vol
         resources:
           requests:
@@ -91,7 +91,6 @@ pipeline {
           sh('pwd')
           sh('ls -al')
           sh('ls ~')
-          sh('ls /var/maven_home')
           sh('ls ~/.m2')
           sh('tree ~/.m2')
           sh('./project/scripts/deploy.sh')
