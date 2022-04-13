@@ -26,16 +26,18 @@ pipeline {
             name: maven-vol
           - mountPath: /root/.m2/settings.xml
             name: maven-settings
-        resources:
-          requests:
-            memory: "1Gi"
-            cpu: "100m"
+            readOnly: true
         volumes:
         - name: maven-vol
           claimName: maven-pvc
         - name: maven-settings
           secret:
             secretName: maven-settings
+            optional: false
+        resources:
+          requests:
+            memory: "1Gi"
+            cpu: "100m"
       '''
     }
   }
