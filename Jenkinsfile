@@ -1,44 +1,7 @@
 pipeline {
   agent {
     kubernetes {
-      yaml '''
-      apiVersion: v1
-      kind: Pod
-      spec:
-        containers:
-        - name: tools
-          image: rsmaxwell/tools:latest
-          command:
-          - cat
-          tty: true
-        - name: c
-          image: gcc:latest
-          command:
-          - cat
-          tty: true
-        - name: maven
-          image: maven:alpine
-          command:
-          - cat
-          tty: true
-          volumeMounts:
-          - mountPath: /root/.m2/repository
-            name: maven-vol
-          - mountPath: /root/.m2/settings.xml
-            name: maven-settings
-            readOnly: true
-        volumes:
-        - name: maven-vol
-          claimName: maven-pvc
-        - name: maven-settings
-          secret:
-            secretName: maven-settings
-            optional: false
-        resources:
-          requests:
-            memory: "1Gi"
-            cpu: "100m"
-      '''
+      yamlFile 'KubernetesPod.yaml'
     }
   }
   stages {
