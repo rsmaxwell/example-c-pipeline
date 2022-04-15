@@ -1,5 +1,7 @@
 apiVersion: v1
 kind: Pod
+metadata:
+  name: mypod
 spec:
   containers:
   - name: tools
@@ -25,12 +27,9 @@ spec:
       readOnly: true
   volumes:
   - name: maven-vol
-    claimName: maven-pvc
+    persistentVolumeClaim:
+      claimName: maven-pvc
   - name: maven-settings
     secret:
       secretName: maven-settings
       optional: false
-  resources:
-    requests:
-      memory: "1Gi"
-      cpu: "100m"
