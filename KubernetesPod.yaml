@@ -10,13 +10,16 @@ spec:
     image: rsmaxwell/tools:latest
     command:
     - cat
-    tty: true
 
   - name: gcc
     image: becivells/alpine-gcc:latest
     command:
     - cat
-    tty: true
+
+  - name: alpine
+    image: alpine:latest
+    command:
+    - cat
 
   - name: golang
     image: golang:bookworm
