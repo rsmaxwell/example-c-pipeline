@@ -13,7 +13,7 @@ spec:
     tty: true
 
   - name: gcc
-    image: gcc:11
+    image: becivells/alpine-gcc:latest
     command:
     - cat
     tty: true
