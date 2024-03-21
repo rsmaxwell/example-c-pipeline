@@ -36,7 +36,7 @@ pipeline {
 
     stage('test') {
       steps {
-        container('tools') {
+        container('alpine') {
           dir('project') {
             echo 'testing the application'
             sh('./scripts/test.sh')
