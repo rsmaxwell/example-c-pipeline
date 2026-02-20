@@ -20,7 +20,13 @@ pipeline {
             checkout([
               $class: 'GitSCM', 
               branches: [[name: '*/main']], 
-              extensions: [], 
+              extensions: [[
+                $class: 'CloneOption',
+                noTags: false,   // <-- key bit: fetch tags
+                shallow: false,
+                depth: 0,
+                timeout: 10
+              ]],
               userRemoteConfigs: [[url: 'https://github.com/rsmaxwell/example-c']]
             ])
             sh('./scripts/prepare.sh')
