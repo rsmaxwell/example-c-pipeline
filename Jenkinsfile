@@ -5,6 +5,10 @@ pipeline {
     }
   }
 
+  options {
+    buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
+  }
+
   environment {
     FAMILY = 'alpine'
     ARCHITECTURE = 'amd64'
